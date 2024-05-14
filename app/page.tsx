@@ -20,12 +20,6 @@ export default async function Home() {
   return (
     <div>
       <h1>Homepage</h1>
-      <br />
-      <Link href="/shopping-card">Shopping Card</Link> <br />
-      <br />
-      <Link href="/33">Product</Link>
-      <br />
-      <br />
       <div className="flexBoxClass">
         {res.map((props: Props) => (
           <div key={props.id}>
