@@ -9,7 +9,7 @@ async function fetchData() {
 
 export default async function Home() {
   const res = await fetchData();
-  console.log(res);
+  // console.log(res);
 
   interface Props {
     id: number;
@@ -22,8 +22,13 @@ export default async function Home() {
       <h1>Homepage</h1>
       <div className="flexBoxClass">
         {res.map((props: Props) => (
-          <div key={props.id}>
-            <Card title={props.title} price="55 NOK" someText={props.body} />
+          <div style={{ width: "30%" }} key={props.id}>
+            <Card
+              title={props.title}
+              price="55 NOK"
+              someText={props.body}
+              link={`/` + props.id}
+            />
             <br />
             <br />
           </div>
