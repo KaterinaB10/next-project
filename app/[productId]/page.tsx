@@ -1,6 +1,30 @@
 "use server";
+import type { Metadata, ResolvingMetadata } from "next";
 import { ProductCard } from "../components/ProductCard";
-// import { useState, useEffect } from "react";
+
+type Props = {
+  params: { id: number };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  type ProductType = {
+    title: string;
+    body: string;
+  };
+  const productId = params.id;
+
+  // fetched data
+  const product = (await fetchData(productId)) as ProductType;
+  return {
+    title: `title ` + product.title,
+    description: product.body,
+  };
+}
 
 async function fetchData(productId: number) {
   const res = await fetch(
