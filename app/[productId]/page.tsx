@@ -17,14 +17,45 @@ export async function generateMetadata(
     body: string;
   };
   const productId = params.id;
+  // const productData: Promise<Product> = fetchData(productId);
+  // const product: Product = await productData;
 
   // fetched data
+  // const product = (await fetch(
+  //   `https://jsonplaceholder.typicode.com/posts/${productId}`
+  // ).then((res) => res.json())) as ProductType;
   const product = (await fetchData(productId)) as ProductType;
+
   return {
     title: `title ` + product.title,
     description: product.body,
   };
 }
+
+//   try {
+//     const productId = params.id;
+
+//     // fetch data
+//     const product = (await fetch(
+//       `https://jsonplaceholder.typicode.com/posts/${productId}`
+//     ).then((res) => res.json())) as ProductType;
+
+//     // optionally access and extend (rather than replace) parent metadata
+//     const previousImages = (await parent).openGraph?.images || [];
+
+//     return {
+//       title: product.title,
+//       openGraph: {
+//         images: ["/some-specific-page-image.jpg", ...previousImages],
+//       },
+//     };
+//   } catch (error) {
+//     return {
+//       title: "Not Found",
+//       description: "The page you are looking for does not exist",
+//     };
+//   }
+// }
 
 async function fetchData(productId: number) {
   const res = await fetch(
