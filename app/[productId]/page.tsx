@@ -1,4 +1,4 @@
-"use server";
+// "use server";
 import type { Metadata, ResolvingMetadata } from "next";
 import { ProductCard } from "../components/ProductCard";
 
@@ -25,6 +25,7 @@ export async function generateMetadata(
   //   `https://jsonplaceholder.typicode.com/posts/${productId}`
   // ).then((res) => res.json())) as ProductType;
   const product = (await fetchData(productId)) as ProductType;
+  // console.log(productId.title);
 
   return {
     title: `title ` + product.title,
