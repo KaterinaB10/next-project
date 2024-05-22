@@ -1,83 +1,38 @@
-// "use server";
 import type { Metadata, ResolvingMetadata } from "next";
 import { ProductCard } from "../components/ProductCard";
 
-type Props = {
-  params: { id: number };
+//Maybe I will move this function in separate file (folder for utilities)
+//I have to use try-catch function!!
+async function fetchData(productId: number | string) {
+  const response = await fetch(
+    "https://jsonplaceholder.typicode.com/posts/" + productId
+  );
+  const product = await response.json();
+  return product as Product;
+}
+
+type MetaDataProps = {
+  params: { productId: number };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  // read route params
-  type ProductType = {
-    title: string;
-    body: string;
-  };
-  const productId = params.id;
-  // const productData: Promise<Product> = fetchData(productId);
-  // const product: Product = await productData;
-
-  // fetched data
-  // const product = (await fetch(
-  //   `https://jsonplaceholder.typicode.com/posts/${productId}`
-  // ).then((res) => res.json())) as ProductType;
-  const product = (await fetchData(productId)) as ProductType;
-  // console.log(productId.title);
-
+export async function generateMetadata({
+  params,
+  searchParams,
+}: MetaDataProps): Promise<Metadata> {
+  const product = await fetchData(params.productId);
   return {
-    title: `title ` + product.title,
+    title: product.title,
     description: product.body,
   };
 }
 
-//   try {
-//     const productId = params.id;
-
-//     // fetch data
-//     const product = (await fetch(
-//       `https://jsonplaceholder.typicode.com/posts/${productId}`
-//     ).then((res) => res.json())) as ProductType;
-
-//     // optionally access and extend (rather than replace) parent metadata
-//     const previousImages = (await parent).openGraph?.images || [];
-
-//     return {
-//       title: product.title,
-//       openGraph: {
-//         images: ["/some-specific-page-image.jpg", ...previousImages],
-//       },
-//     };
-//   } catch (error) {
-//     return {
-//       title: "Not Found",
-//       description: "The page you are looking for does not exist",
-//     };
-//   }
-// }
-
-async function fetchData(productId: number) {
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/posts/" + productId
-  );
-  const result = await res.json();
-  return result;
-}
-
-type Product = {
-  title: string;
-  body: string;
-};
-
-export default async function ProductId({
+export default async function Page({
   params,
 }: {
   params: { productId: number };
 }) {
-  const product = (await fetchData(params.productId)) as Product;
-  console.log(product);
+  const product = await fetchData(params.productId);
 
   return (
     <div>
