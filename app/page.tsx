@@ -1,27 +1,36 @@
-import Link from "next/link";
 import { Card } from "./components/Card";
+import fsPromises from "fs/promises";
+import path from "path";
 
-async function fetchData() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const result = await res.json();
-  return result;
+async function getLocalData() {
+  const filePath = path.join(process.cwd(), "/app/db.json");
+  const jsonData = await fsPromises.readFile(filePath);
+  const objectData = JSON.parse(jsonData);
+
+  return objectData;
 }
 
+// async function fetchData() {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+//   const result = await res.json();
+//   return result;
+// }
+
 export default async function Home() {
-  const res = await fetchData();
+  const res = await getLocalData();
   // console.log(res);
 
-  interface Props {
-    id: number;
-    title: string;
-    body: string;
-  }
+  // interface Props {
+  //   id: number;
+  //   title: string;
+  //   body: string;
+  // }
 
   return (
     <div>
       <h1>Homepage</h1>
       <div className="flexBoxClass">
-        {res.map((props: Props) => (
+        {res.map((props: Product) => (
           <div style={{ width: "30%" }} key={props.id}>
             <Card
               title={props.title}
