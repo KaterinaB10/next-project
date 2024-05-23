@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Iced Espresso",
+      "components": ["Espresso", "Hot milk", "Ice", "Brown sugar"],
+      "body": "The espresso shaken with ice and sweetener before serving",
+      "tagList": ["iced"],
+      "price": "5.5$",
+      "favorited": true,
+      "image": "../../public/images/black-coffee.png"
+    },
+    {
+      "id": "2",
+      "title": "Iced Espresso",
+      "components": ["Espresso", "Hot milk", "Ice", "Brown sugar"],
+      "body": "The espresso shaken with ice and sweetener before serving",
+      "tagList": ["iced"],
+      "price": "5.5$",
+      "favorited": true,
+      "image": "../../public/images/black-coffee.png"
+    }
+  ]
+}
