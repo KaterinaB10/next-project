@@ -3,7 +3,7 @@ type Product = {
   title: string;
   components: [string];
   body: string;
-  tag: string;
+  tags: string;
   price: string;
   favorited: boolean;
   image?: File;

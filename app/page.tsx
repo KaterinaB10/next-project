@@ -1,42 +1,39 @@
-import { Card } from "./components/Card";
-import fsPromises from "fs/promises";
+import { promises as fs } from "fs";
 import path from "path";
+import { Card } from "./components/Card";
 
-async function getLocalData() {
-  const filePath = path.join(process.cwd(), "/app/db.json");
-  const jsonData = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData);
-
-  return objectData;
+interface Product {
+  id: number | string;
+  title: string;
+  components: [string];
+  body: string;
+  tags: string;
+  price: string;
+  favorited: boolean;
+  image?: string;
 }
 
-// async function fetchData() {
-//   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-//   const result = await res.json();
-//   return result;
-// }
+async function fetchProducts(): Promise<Product[]> {
+  const filePath = path.join(process.cwd(), "app", "api", "db.json");
+  const fileContents = await fs.readFile(filePath, "utf8");
+  return JSON.parse(fileContents).products;
+}
 
 export default async function Home() {
-  const res = await getLocalData();
-  // console.log(res);
-
-  // interface Props {
-  //   id: number;
-  //   title: string;
-  //   body: string;
-  // }
+  const products = await fetchProducts();
 
   return (
     <div>
       <h1>Homepage</h1>
       <div className="flexBoxClass">
-        {res.map((props: Product) => (
-          <div style={{ width: "30%" }} key={props.id}>
+        {products.map((product: Product) => (
+          <div style={{ width: "30%" }} key={product.id}>
             <Card
-              title={props.title}
+              image={product.image}
+              title={product.title}
               price="55 NOK"
-              someText={props.body}
-              link={`/` + props.id}
+              someText={product.body}
+              link={`/${product.id}`}
             />
             <br />
             <br />
