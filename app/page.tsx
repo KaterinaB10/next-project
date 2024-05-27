@@ -26,7 +26,7 @@ export default async function Home() {
     <div>
       <div className="flexBoxClass">
         {products.map((product: Product) => (
-          <div style={{ width: "25%" }} key={product.id}>
+          <div key={product.id}>
             <Card
               image={product.image}
               title={product.title}

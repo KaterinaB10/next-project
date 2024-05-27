@@ -17,8 +17,8 @@ export function Card({ image, title, price, someText, link }: CardProperties) {
         <Image
           src={image}
           alt={someText}
-          width={300}
-          height={300}
+          width={280}
+          height={280}
           className={style.cardImg}
         />
       )}
