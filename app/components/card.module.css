@@ -1,0 +1,10 @@
+.cardContainer {
+  width: 100%;
+  background-color: #f1f1f1;
+  transition: 0.5s;
+}
+
+.cardContainer:hover {
+  background-color: #522818;
+  transition: 0.5s;
+}

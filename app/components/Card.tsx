@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import style from "./card.module.css";
 
 interface CardProperties {
   image?: string;
@@ -11,7 +12,7 @@ interface CardProperties {
 
 export function Card({ image, title, price, someText, link }: CardProperties) {
   return (
-    <div style={{ backgroundColor: "lightBlue", width: "100%" }}>
+    <div className={style.cardContainer}>
       {image && <Image src={image} alt={someText} width={300} height={300} />}
       <h1>{title}</h1>
       <p>{price}</p>
