@@ -1,25 +1,8 @@
-import fs from "fs/promises";
-import path from "path";
 import React from "react";
 import { Metadata } from "next";
 import ProductCard from "../components/ProductCard";
 
-interface Product {
-  id: number | string;
-  title: string;
-  components: string[];
-  body: string;
-  tags: string;
-  price: string;
-  favorited: boolean;
-  image?: string;
-}
-
-export async function fetchProducts(): Promise<Product[]> {
-  const filePath = path.join(process.cwd(), "app", "api", "db.json");
-  const fileContents = await fs.readFile(filePath, "utf-8");
-  return JSON.parse(fileContents).products;
-}
+import { fetchProducts } from "../utilities/FetchData";
 
 type MetaDataProps = {
   params: { productId: number };
