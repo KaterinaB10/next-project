@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Open_Sans } from "next/font/google";
+import { Counter } from "./Counter";
 import style from "./card.module.css";
 
 const openSans = Open_Sans({ subsets: ["latin"], weight: "800" });
@@ -29,6 +30,7 @@ export function Card({ image, title, price, someText, link }: CardProperties) {
         <h3 className={openSans.className}>{title}</h3>
         <p className={style.cardInfoPrice}>{price}</p>
         <p className={style.cardInfoDescription}>{someText}</p>
+        <Counter />
         <Link href={link}>Read more</Link>
       </div>
     </div>
