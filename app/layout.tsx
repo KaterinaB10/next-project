@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "./components/NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export const metadata: Metadata = {
   title: "Coffee House",

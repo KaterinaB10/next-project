@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Open_Sans } from "next/font/google";
 import style from "./card.module.css";
+
+const openSans = Open_Sans({ subsets: ["latin"], weight: "800" });
 
 interface CardProperties {
   image?: string;
@@ -17,15 +20,15 @@ export function Card({ image, title, price, someText, link }: CardProperties) {
         <Image
           src={image}
           alt={someText}
-          width={280}
-          height={280}
+          width={260}
+          height={260}
           className={style.cardImg}
         />
       )}
       <div className={style.cardInfo}>
-        <h1>{title}</h1>
-        <p>{price}</p>
-        <p>{someText}</p>
+        <h3 className={openSans.className}>{title}</h3>
+        <p className={style.cardInfoPrice}>{price}</p>
+        <p className={style.cardInfoDescription}>{someText}</p>
         <Link href={link}>Read more</Link>
       </div>
     </div>

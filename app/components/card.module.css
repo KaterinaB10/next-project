@@ -1,20 +1,30 @@
 .cardContainer {
   width: 15em;
-  height: 26.892em;
+  height: 25em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   position: relative;
 }
 
 .cardImg {
   position: absolute;
-  top: -5%;
+  top: -2%;
 }
 
 .cardInfo {
-  width: 14.109em;
-  height: 20.157em;
+  padding: 1em;
+  width: 13em;
+  height: 18em;
   border: 0.79px solid #ecdea5;
   border-radius: 12.59px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cardInfoDescription {
+  font-size: 0.875rem;
 }
