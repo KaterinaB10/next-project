@@ -1,3 +1,5 @@
+import { PopUpBtn } from "./PopUpBtn";
+
 interface ProductCardProps {
   title: string;
   price: string;
@@ -13,6 +15,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     <h2>{title}</h2>
     <p>{price}</p>
     <p>{someText}</p>
+    <PopUpBtn />
   </div>
 );
 
