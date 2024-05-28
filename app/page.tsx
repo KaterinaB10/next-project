@@ -5,7 +5,7 @@ import { Card } from "./components/Card";
 interface Product {
   id: number | string;
   title: string;
-  components: [string];
+  components: string[];
   body: string;
   tags: string;
   price: string;
@@ -13,7 +13,7 @@ interface Product {
   image?: string;
 }
 
-async function fetchProducts(): Promise<Product[]> {
+export async function fetchProducts(): Promise<Product[]> {
   const filePath = path.join(process.cwd(), "app", "api", "db.json");
   const fileContents = await fs.readFile(filePath, "utf8");
   return JSON.parse(fileContents).products;

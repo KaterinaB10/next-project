@@ -1,17 +1,19 @@
-import Link from "next/link";
-
-interface PrCard {
+interface ProductCardProps {
   title: string;
   price: string;
   someText: string;
 }
 
-export function ProductCard({ title, price, someText }: PrCard) {
-  return (
-    <div style={{ backgroundColor: "lightBlue", width: "100%" }}>
-      <h1>{title}</h1>
-      <p>{someText}</p>
-      <h2>{price}</h2>
-    </div>
-  );
-}
+const ProductCard: React.FC<ProductCardProps> = ({
+  title,
+  price,
+  someText,
+}) => (
+  <div>
+    <h2>{title}</h2>
+    <p>{price}</p>
+    <p>{someText}</p>
+  </div>
+);
+
+export default ProductCard;

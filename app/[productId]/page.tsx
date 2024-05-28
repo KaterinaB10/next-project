@@ -1,30 +1,23 @@
-import type { Metadata, ResolvingMetadata } from "next";
-import { ProductCard } from "../components/ProductCard";
+import fs from "fs/promises";
+import path from "path";
+import React from "react";
+import ProductCard from "../components/ProductCard";
 
-//Maybe I will move this function in separate file (folder for utilities)
-//I have to use try-catch function!!
-async function fetchData(productId: number | string) {
-  const response = await fetch(
-    "https://jsonplaceholder.typicode.com/posts/" + productId
-  );
-  const product = await response.json();
-  return product as Product;
+interface Product {
+  id: number | string;
+  title: string;
+  components: string[];
+  body: string;
+  tags: string;
+  price: string;
+  favorited: boolean;
+  image?: string;
 }
 
-type MetaDataProps = {
-  params: { productId: number };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export async function generateMetadata({
-  params,
-  searchParams,
-}: MetaDataProps): Promise<Metadata> {
-  const product = await fetchData(params.productId);
-  return {
-    title: product.title,
-    description: product.body,
-  };
+export async function fetchProducts(): Promise<Product[]> {
+  const filePath = path.join(process.cwd(), "app", "api", "db.json");
+  const fileContents = await fs.readFile(filePath, "utf-8");
+  return JSON.parse(fileContents).products;
 }
 
 export default async function Page({
@@ -32,14 +25,23 @@ export default async function Page({
 }: {
   params: { productId: number };
 }) {
-  const product = await fetchData(params.productId);
+  const products = await fetchProducts();
+  const product = products.find((p) => p.id === params.productId);
+
+  if (!product) {
+    return (
+      <div>
+        <h1>Product not found</h1>
+      </div>
+    );
+  }
 
   return (
     <div>
       <h1>Product Card {params.productId}</h1>
       <ProductCard
         title={product.title}
-        price="55 NOK"
+        price={product.price}
         someText={product.body}
       />
     </div>
