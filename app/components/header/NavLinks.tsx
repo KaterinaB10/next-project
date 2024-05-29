@@ -8,7 +8,7 @@ import styles from "./nav.module.css";
 type NavLink = {
   label: string;
   href: string;
-  icon?: string;
+  icon: string;
 };
 
 type Properties = {
@@ -28,10 +28,7 @@ export default function NavLink({ navLinks }: Properties) {
             href={link.href}
             className={isActive ? styles.BtnActive : styles.btn}
           >
-            {link.icon && (
-              <Image src={link.icon} alt={link.label} width={25} height={25} />
-            )}
-            {link.label}
+            <Image src={link.icon} alt={link.label} width={20} height={20} />
           </Link>
         );
       })}
