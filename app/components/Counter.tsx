@@ -32,7 +32,7 @@ export function Counter() {
   return (
     <div className={style.counterContainer}>
       <button onClick={decrement}>-</button>
-      <p>{count}</p>
+      <p className={style.counterNum}>{count}</p>
       <button onClick={increment}>+</button>
     </div>
   );

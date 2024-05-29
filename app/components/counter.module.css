@@ -1,3 +1,19 @@
 .counterContainer {
+  margin: 0 auto;
   display: flex;
+}
+
+.counterNum {
+  width: 50px;
+  height: 2.458em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f5da;
+  border: 0.79px solid #ecdea5;
+  border-radius: 0;
+}
+
+.counterContainer button {
+  width: 50px;
 }

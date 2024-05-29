@@ -16,23 +16,24 @@ interface CardProperties {
 
 export function Card({ image, title, price, someText, link }: CardProperties) {
   return (
-    <div className={style.cardContainer}>
-      {image && (
-        <Image
-          src={image}
-          alt={someText}
-          width={260}
-          height={260}
-          className={style.cardImg}
-        />
-      )}
-      <div className={style.cardInfo}>
-        <h3 className={openSans.className}>{title}</h3>
-        <p className={style.cardInfoPrice}>{price}</p>
-        <p className={style.cardInfoDescription}>{someText}</p>
-        <Counter />
-        <Link href={link}>Read more</Link>
+    <Link href={link}>
+      <div className={style.cardContainer}>
+        {image && (
+          <Image
+            src={image}
+            alt={someText}
+            width={260}
+            height={260}
+            className={style.cardImg}
+          />
+        )}
+        <div className={style.cardInfo}>
+          <h3 className={openSans.className}>{title}</h3>
+          <p className={style.cardInfoPrice}>{price}</p>
+          <p className={style.cardInfoDescription}>{someText}</p>
+          <Counter />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

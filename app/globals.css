@@ -17,3 +17,8 @@ body {
   justify-content: center;
   gap: 30px;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}

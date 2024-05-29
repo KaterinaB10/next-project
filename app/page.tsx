@@ -30,7 +30,7 @@ export default async function Home() {
             <Card
               image={product.image}
               title={product.title}
-              price="55 NOK"
+              price={product.price}
               someText={product.body}
               link={`/${product.id}`}
             />

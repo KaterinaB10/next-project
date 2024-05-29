@@ -1,13 +1,9 @@
 "use client";
-import { fetchProducts } from "../utilities/FetchData";
 import { PopUpMessage } from "./PopUpMessage";
 import { useState } from "react";
 
-export async function PopUpBtn(params: Product) {
+export function PopUpBtn({ title, body }: Product) {
   const [deleteButton, setDeleteButton] = useState(false);
-
-  const products = await fetchProducts();
-  const product = products.find((p) => p.id === params.id);
 
   return (
     <section className="btn-section">
@@ -25,8 +21,8 @@ export async function PopUpBtn(params: Product) {
             className="pop-up-message-text"
             style={{ width: "200px", height: "200px", background: "lightBlue" }}
           >
-            <h1>{product.title}</h1>
-            <p>{product.body}</p>
+            <h1>{title}</h1>
+            <p>{body}</p>
           </div>
         </PopUpMessage>
       </div>
