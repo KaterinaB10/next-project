@@ -1,0 +1,22 @@
+.header {
+  height: 54px;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fffff0;
+  position: fixed;
+  z-index: 1;
+}
+
+.btnContainer {
+  width: 20%;
+}
+
+.btn {
+  color: #9e7956;
+}
+
+.btnActive {
+  color: rgb(136, 66, 0);
+}
