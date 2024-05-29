@@ -5,7 +5,7 @@ import styles from "./nav.module.css";
 export function NavBar() {
   return (
     <header className={styles.header}>
-      <Logo />
+      <Logo src="/images/icons/logo.png" alt="logo" />
       <NavBtns />
     </header>
   );

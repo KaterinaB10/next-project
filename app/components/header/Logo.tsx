@@ -1,10 +1,14 @@
 import Image from "next/image";
 
-export function Logo() {
-  return (
-    <div></div>
-    // <Image>
+type LogoType = {
+  src: string;
+  alt: string;
+};
 
-    // </Image>
+export function Logo({ src, alt }: LogoType) {
+  return (
+    <div>
+      <Image src={src} alt={alt} width={50} height={50} />
+    </div>
   );
 }
