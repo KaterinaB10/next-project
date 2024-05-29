@@ -9,6 +9,7 @@ type NavLink = {
   label: string;
   href: string;
   icon: string;
+  activeIcon: string;
 };
 
 type Properties = {
@@ -23,12 +24,13 @@ export default function NavLink({ navLinks }: Properties) {
         const isActive = pathname === link.href;
 
         return (
-          <Link
-            key={link.label}
-            href={link.href}
-            className={isActive ? styles.BtnActive : styles.btn}
-          >
-            <Image src={link.icon} alt={link.label} width={20} height={20} />
+          <Link key={link.label} href={link.href}>
+            <Image
+              src={isActive ? link.activeIcon : link.icon}
+              alt={link.label}
+              width={20}
+              height={20}
+            />
           </Link>
         );
       })}
