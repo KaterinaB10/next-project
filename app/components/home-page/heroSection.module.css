@@ -1,0 +1,25 @@
+.heroSection {
+  width: 90%;
+  height: 70vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heroText h1,
+.heroText h3 {
+  width: 50vw;
+}
+
+.heroText h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  line-height: 4rem;
+}
+
+.heroText h3 {
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}

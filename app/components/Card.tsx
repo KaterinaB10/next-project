@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Open_Sans } from "next/font/google";
+import { openSans } from "../fonts/openSans";
 import { Counter } from "./Counter";
 import style from "./card.module.css";
-
-const openSans = Open_Sans({ subsets: ["latin"], weight: "800" });
 
 interface CardProperties {
   image?: string;

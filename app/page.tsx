@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { Card } from "./components/Card";
+import { Hero } from "./components/home-page/HeroSection";
 
 interface Product {
   id: number | string;
@@ -24,6 +25,7 @@ export default async function Home() {
 
   return (
     <main>
+      <Hero />
       <div className="flexBoxClass">
         {products.map((product: Product) => (
           <div key={product.id}>
