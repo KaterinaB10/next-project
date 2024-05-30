@@ -23,7 +23,7 @@ export default async function Home() {
   const products = await fetchProducts();
 
   return (
-    <div>
+    <main>
       <div className="flexBoxClass">
         {products.map((product: Product) => (
           <div key={product.id}>
@@ -39,6 +39,6 @@ export default async function Home() {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }

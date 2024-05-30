@@ -9,6 +9,10 @@ body {
   background-color: #fffff0;
 }
 
+main {
+  padding-top: 54px;
+}
+
 .flexBoxClass {
   margin: 0 auto;
   max-width: 90%;
