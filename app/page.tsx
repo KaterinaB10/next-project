@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { Card } from "./components/Card";
-import { Hero } from "./components/home-page/HeroSection";
+import { Hero } from "./components/home-page/hero-section/HeroSection";
 
 interface Product {
   id: number | string;

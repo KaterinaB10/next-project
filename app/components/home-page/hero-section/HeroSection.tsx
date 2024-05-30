@@ -1,4 +1,5 @@
-import { openSans } from "../../fonts/openSans";
+import { openSans } from "../../../fonts/openSans";
+import { Carousel } from "./Carousel";
 import styles from "./heroSection.module.css";
 
 export function Hero() {
@@ -8,7 +9,11 @@ export function Hero() {
         <h1 className={openSans.className}>Choose your favorite taste</h1>
         <h3>using our ordering platform.</h3>
       </div>
-      <div className={styles.heroAccentCircle}></div>
+      <Carousel />
     </section>
   );
+}
+
+{
+  /* <div className={styles.heroAccentCircle}></div>; */
 }
