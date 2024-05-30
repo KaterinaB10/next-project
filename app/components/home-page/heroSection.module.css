@@ -1,25 +1,33 @@
 .heroSection {
   width: 90%;
-  height: 70vh;
+  height: 80vh;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .heroText h1,
 .heroText h3 {
-  width: 50vw;
+  width: 45vw;
 }
 
 .heroText h1 {
   font-size: 4rem;
   text-transform: uppercase;
   line-height: 4rem;
+  color: #e25a27;
 }
 
 .heroText h3 {
   font-size: 1.9rem;
   text-transform: uppercase;
   font-weight: 700;
+  color: #160d08;
+}
+
+.heroAccentCircle {
+  width: 22em;
+  height: 22em;
+  background-image: linear-gradient(to right, #e25a27, #e7c98b);
+  border-radius: 360px;
 }

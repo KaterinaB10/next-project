@@ -8,6 +8,7 @@ export function Hero() {
         <h1 className={openSans.className}>Choose your favorite taste</h1>
         <h3>using our ordering platform.</h3>
       </div>
+      <div className={styles.heroAccentCircle}></div>
     </section>
   );
 }
