@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import { Test } from "../components/Test";
+import { FindPopularTag } from "../utilities/FindPopularTag";
 
 export const metadata: Metadata = {
   title: "Order Form",
@@ -7,5 +9,11 @@ export const metadata: Metadata = {
 };
 
 export default function ShoppingCard() {
-  return <h1>Shopping Card</h1>;
+  return (
+    <main>
+      <FindPopularTag />
+      <Test />
+      <h1>Shopping Card</h1>
+    </main>
+  );
 }

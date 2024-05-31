@@ -1,13 +1,23 @@
-"use client";
-import { useState } from "react";
 import { fetchProduct } from "./fetchProduct";
 
-export async function FindPopularTag() {
-  const [filteredProducts, setFilteredProducts] = useState([]);
+export const FindPopularTag = async (): Promise<Product[]> => {
+  try {
+    const products: Product[] = await fetchProduct();
+    const favoritedProducts = products.filter((product) => product.favorited);
 
-  const uniqueTags = new Set();
-
-  const products = await fetchProduct();
-
-  return <div></div>;
-}
+    return (
+      <div>
+        {favoritedProducts.map((p: Product) => {
+          return (
+            <div key={p.id}>
+              <h1>{p.title}</h1>
+            </div>
+          );
+        })}
+      </div>
+    );
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return [];
+  }
+};

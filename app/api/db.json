@@ -7,7 +7,7 @@
       "body": "The espresso shaken with ice and sweetener before serving",
       "tagList": ["iced"],
       "price": "5.5$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/black-coffee.png"
     },
     {
@@ -23,7 +23,7 @@
       "body": "The frappuccino shaken with strawberries syrup and cherries",
       "tagList": ["iced", "fruit"],
       "price": "6.9$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/berry-coffee.png"
     },
     {
@@ -43,7 +43,7 @@
       "body": "Warm-up cocoa combined with cream and hot chocolate",
       "tagList": ["chocolate", "hot"],
       "price": "4.5$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/cocoa.png"
     },
     {
@@ -53,7 +53,7 @@
       "body": "The latte topped with cream and caramel sauce",
       "tagList": ["hot"],
       "price": "6.2$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/cold-coffee.png"
     },
     {
@@ -63,7 +63,7 @@
       "body": "Iced latte topped with coffee-popping pearls",
       "tagList": ["iced"],
       "price": "5.5$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/bubble-iced-tea.png"
     },
     {
@@ -73,7 +73,7 @@
       "body": "A sweet and caramel tasting hot chocolate made out of white chocolate with caramelized sugar",
       "tagList": ["chocolate", "hot"],
       "price": "7.5$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/cold-latte.png"
     },
     {
@@ -83,7 +83,7 @@
       "body": "Creamy steamed milk sprinkled with a single espresso shot",
       "tagList": ["hot"],
       "price": "5.1$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/latte.png"
     },
     {
@@ -103,7 +103,7 @@
       "body": "Latte made of creamy steamed milk poured over chocolate sauce, topped with whipped cream",
       "tagList": ["hot", "chocolate"],
       "price": "7.5$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/chocolate-coffee.png"
     },
     {
@@ -123,7 +123,7 @@
       "body": "Iced frappuccino with a dollop of cream and a scoop of vanilla ice cream",
       "tagList": ["iced"],
       "price": "6.2$",
-      "favorited": true,
+      "favorited": false,
       "image": "/images/frappe.png"
     }
   ]

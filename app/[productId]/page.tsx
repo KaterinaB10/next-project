@@ -2,6 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import ProductCard from "../components/ProductCard";
 import { fetchProduct } from "../utilities/fetchProduct";
+import styles from "./productId.module.css";
 
 type MetaDataProps = {
   params: { productId: number };
@@ -38,20 +39,20 @@ export default async function Page({
 
   if (!product) {
     return (
-      <div>
+      <main>
         <h1>Product not found</h1>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div>
+    <main>
       <h1>Product Card {params.productId}</h1>
       <ProductCard
         title={product.title}
         price={product.price}
         someText={product.body}
       />
-    </div>
+    </main>
   );
 }
