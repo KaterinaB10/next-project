@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Test } from "../components/Test";
-import { FindPopularTag } from "../utilities/FindPopularTag";
+import { PopularProducts } from "../utilities/FindPopularTag";
 
 export const metadata: Metadata = {
   title: "Order Form",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ShoppingCard() {
   return (
     <main>
-      <FindPopularTag />
+      <PopularProducts />
       <Test />
       <h1>Shopping Card</h1>
     </main>
