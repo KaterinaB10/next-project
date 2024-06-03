@@ -1,6 +1,6 @@
 import { fetchProduct } from "./fetchProduct";
 
-export const PopularProducts = async (): Promise<Product[]> => {
+export const PopularProducts = async (param: Product) => {
   try {
     const products: Product[] = await fetchProduct();
     const favoritedProducts = products.filter((product) => product.favorited);
