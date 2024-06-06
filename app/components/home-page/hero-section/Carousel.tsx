@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { fetchProduct } from "./fetchProduct";
+import { fetchProduct } from "@/app/utilities/fetchProduct";
 import Image from "next/image";
 
-export async function EmblaCarousel = () => {
+export async function EmblaCarousel() {
   const products: Product[] = await fetchProduct();
   const favoritedProducts = products.filter((product) => product.favorited);
 
@@ -44,4 +44,4 @@ export async function EmblaCarousel = () => {
       </button>
     </div>
   );
-};
+}
