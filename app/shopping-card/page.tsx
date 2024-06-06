@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 export default function ShoppingCard() {
   return (
     <main>
-      <PopularProducts />
       <Test />
       <h1>Shopping Card</h1>
     </main>

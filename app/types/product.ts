@@ -6,5 +6,5 @@ type Product = {
   tags: string;
   price: string;
   favorited: boolean;
-  image?: string;
+  image?: any;
 };

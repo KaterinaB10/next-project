@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { fetchProduct } from "@/app/utilities/fetchProduct";
 import Image from "next/image";
 
-export async function EmblaCarousel() {
-  const products: Product[] = await fetchProduct();
-  const favoritedProducts = products.filter((product) => product.favorited);
+type EmblaCarouselProps = {
+  products: IProduct[];
+};
 
+export function EmblaCarousel({ products }: EmblaCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const scrollPrev = useCallback(() => {
@@ -21,8 +21,8 @@ export async function EmblaCarousel() {
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {favoritedProducts.map((product: Product) => (
-            <div key={product.id}>
+          {products.map((product) => (
+            <div key={product.id} className="embla__slide">
               <Image
                 src={product.image}
                 alt={product.body}
@@ -31,9 +31,6 @@ export async function EmblaCarousel() {
               />
             </div>
           ))}
-          <div className="embla__slide">Slide 1</div>
-          <div className="embla__slide">Slide 2</div>
-          <div className="embla__slide">Slide 3</div>
         </div>
       </div>
       <button className="embla__prev" onClick={scrollPrev}>
